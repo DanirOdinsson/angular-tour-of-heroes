@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroDetailComponent implements OnInit {
 
-  @Input()
-  
+  @Input() hero: Hero;
+
   constructor() { }
 
   ngOnInit(): void {
