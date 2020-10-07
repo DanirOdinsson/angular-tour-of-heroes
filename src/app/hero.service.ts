@@ -26,7 +26,8 @@ export class HeroService
   ) { }
 
   /** Getting Heroes from Server */
-  getHeroes(): Observable<Hero[]> {
+  getHeroes(): Observable<Hero[]> 
+  {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
@@ -35,7 +36,8 @@ export class HeroService
   }
 
   /** Getting Hero by  id and return undefined when id not found */
-  getHeroNo404<Data>(id: number): Observable<Hero> {
+  getHeroNo404<Data>(id: number): Observable<Hero> 
+  {
     const url = `${this.heroesUrl}/?id=${id}`;
     return this.http.get<Hero[]>(url)
       .pipe(
@@ -49,7 +51,8 @@ export class HeroService
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number): Observable<Hero> 
+  {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
@@ -58,7 +61,8 @@ export class HeroService
   }
 
   /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<Hero[]> {
+  searchHeroes(term: string): Observable<Hero[]> 
+  {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
@@ -90,7 +94,8 @@ export class HeroService
   }
 
   /** Updating the hero on the server */
-  updateHero(hero: Hero): Observable<any> {
+  updateHero(hero: Hero): Observable<any> 
+  {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
@@ -100,7 +105,8 @@ export class HeroService
     * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) 
+  {
     return (error: any): Observable<T> => {
 
             this.log(`${operation} failed: ${error.message}`);
@@ -110,7 +116,8 @@ export class HeroService
   }
 
   /** Logging of HeroService message with the MessageService */
-  private log(message: string) {
+  private log(message: string) 
+  {
     this.messageService.add(`HeroService: ${message}`);
   }
 }
