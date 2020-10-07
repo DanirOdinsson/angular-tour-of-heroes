@@ -12,7 +12,8 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 
-@NgModule({
+@NgModule
+  ({
   imports: [
     BrowserModule,
     FormsModule,
@@ -20,9 +21,10 @@ import { MessagesComponent } from './messages/messages.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+  )
   ],
-  declarations: [
+  declarations: 
+  [
     AppComponent,
     DashboardComponent,
     HeroesComponent,
